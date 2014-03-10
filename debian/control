@@ -1,0 +1,22 @@
+Source: preciosa
+Section: unknown
+Priority: extra
+Maintainer: Ignacio Juan Martín Benedetti <tranceway@gmail.com>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+Homepage: https://github.com/mgaitan/preciosa_mobile
+#Vcs-Git: git://git.debian.org/collab-maint/huayra-visor-manual.git
+#Vcs-Browser: http://git.debian.org/?p=collab-maint/huayra-visor-manual.git;a=summary
+
+Package: preciosa
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, node-webkit(>= 0.6)
+Description: Inteligencia colectiva contra la inflación.
+ Preciosa (Precios de Argentina) es una plataforma web con
+ aplicaciones para teléfonos inteligentes que facilita el
+ relevamiento de precios y ayuda a encontrar mejores ofertas.
+ .
+ A diferencia de otras aplicaciones existentes, Preciosa
+ no limita la información a precios de productos bajo
+ acuerdo y enfatiza la participación de los usuarios para
+ mantener la información actualizada.

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Preciosa
+Comment=Inteligencia colectiva contra la inflación
+Exec=/usr/bin/preciosa
+Terminal=false
+Type=Application
+Icon=preciosa
+Categories=Huayra;

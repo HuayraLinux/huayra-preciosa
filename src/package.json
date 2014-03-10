@@ -1,0 +1,11 @@
+{
+  "main": "index.html",
+  "name": "preciosa-mobile",
+  "description": "Precios de Argentina",
+  "version": "0.0.1",
+  "window": {
+    "title": "Precios de Argentina",
+    "icon": "images/logo.png"
+  }
+}
+
