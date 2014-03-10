@@ -1,5 +1,5 @@
 Source: preciosa
-Section: unknown
+Section: misc
 Priority: extra
 Maintainer: Ignacio Juan Martín Benedetti <tranceway@gmail.com>
 Build-Depends: debhelper (>= 8.0.0)
@@ -9,7 +9,7 @@ Homepage: https://github.com/mgaitan/preciosa_mobile
 #Vcs-Browser: http://git.debian.org/?p=collab-maint/huayra-visor-manual.git;a=summary
 
 Package: preciosa
-Architecture: any
+Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}, node-webkit(>= 0.6)
 Description: Inteligencia colectiva contra la inflación.
  Preciosa (Precios de Argentina) es una plataforma web con
