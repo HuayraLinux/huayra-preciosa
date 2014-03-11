@@ -1,3 +1,11 @@
+preciosa (0.1.1) unstable; urgency=low
+
+  * Mejoras en las transiciones entre pantallas.
+  * Cambio de JSONP a JSON para usar el manejo de errores nativos de jQuery.
+  * Optimización en manejo de eventos click.
+
+ -- Ignacio Juan Martín Benedetti <tranceway@gmail.com>  Tue, 11 Mar 2014 15:49:33 -0300
+
 preciosa (0.1) unstable; urgency=low
 
   * Initial release.
