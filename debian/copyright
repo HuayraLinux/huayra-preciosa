@@ -3,7 +3,7 @@ Upstream-Name: preciosa
 Source: https://github.com/mgaitan/preciosa
 
 Files: *
-Copyright: 2014 Martín Gaitan <mgaitan@gmail.com>
+Copyright: 2014 Martín Gaitan <gaitan@gmail.com>
 License: GPL-3.0+
 
 Files: debian/*
