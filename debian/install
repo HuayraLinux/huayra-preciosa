@@ -1,4 +1,4 @@
-src/* usr/share/preciosa/src
+www/* usr/share/preciosa/src
 bin/preciosa usr/bin/
 debian/preciosa.desktop usr/share/applications
 debian/preciosa.svg usr/share/icons/hicolor/scalable/apps
