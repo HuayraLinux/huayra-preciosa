@@ -1,3 +1,9 @@
+huayra-preciosa (0.1.13) UNRELEASED; urgency=low
+
+  * Fijación de Headers en las vistas.
+
+ -- Ignacio Juan Martín Benedetti <tranceway@gmail.com>  Thu, 13 Mar 2014 15:18:07 -0300
+
 huayra-preciosa (0.1.12) unstable; urgency=low
 
   * Versión de escritorio con resulción adaptada a las netbooks
