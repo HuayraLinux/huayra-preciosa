@@ -1,3 +1,10 @@
+huayra-preciosa (0.1.14) unstable; urgency=low
+
+  * Se agregó la librería de íconos Font-Awesome.
+  * Se mejoró la vista del listado de productos.
+
+ -- Ignacio Juan Martín Benedetti <tranceway@gmail.com>  Thu, 13 Mar 2014 17:58:37 -0300
+
 huayra-preciosa (0.1.13) unstable; urgency=low
 
   * Fijación de Headers en las vistas.
