@@ -1,4 +1,13 @@
-preciosa (0.1.1) unstable; urgency=low
+huayra-preciosa (0.1.11) unstable; urgency=low
+
+  * Configuración de la ventana de node-webkit.
+  * Corrección de créditos.
+  * Renombrado de la carpeta src/ a www/ para compatibilidad de cherry-pics
+    con preciosa_mobile.
+
+ -- Ignacio Juan Martín Benedetti <tranceway@gmail.com>  Wed, 12 Mar 2014 14:50:17 -0300
+
+huayra-preciosa (0.1.1) unstable; urgency=low
 
   * Mejoras en las transiciones entre pantallas.
   * Cambio de JSONP a JSON para usar el manejo de errores nativos de jQuery.
@@ -6,7 +15,7 @@ preciosa (0.1.1) unstable; urgency=low
 
  -- Ignacio Juan Martín Benedetti <tranceway@gmail.com>  Tue, 11 Mar 2014 15:49:33 -0300
 
-preciosa (0.1) unstable; urgency=low
+huayra-preciosa (0.1) unstable; urgency=low
 
   * Initial release.
 

@@ -1,4 +1,4 @@
-Source: preciosa
+Source: huayra-preciosa
 Section: misc
 Priority: extra
 Maintainer: Ignacio Juan Martín Benedetti <tranceway@gmail.com>
@@ -8,7 +8,7 @@ Homepage: https://github.com/mgaitan/preciosa_mobile
 #Vcs-Git: git://git.debian.org/collab-maint/huayra-visor-manual.git
 #Vcs-Browser: http://git.debian.org/?p=collab-maint/huayra-visor-manual.git;a=summary
 
-Package: preciosa
+Package: huayra-preciosa
 Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}, node-webkit(>= 0.6)
 Description: Inteligencia colectiva contra la inflación.
