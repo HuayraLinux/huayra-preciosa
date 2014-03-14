@@ -11,6 +11,9 @@
     "width": 480,
     "height": 540,
     "toolbar": false
+  },
+  "config" : {
+    "api_url": "http://preciosdeargentina.com.ar/api/v1"
   }
 }
 

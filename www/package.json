@@ -11,6 +11,9 @@
     "width": 480,
     "height": 640,
     "toolbar": true
+  },
+  "config" : {
+    "api_url": "http://localhost:8000/api/v1"
   }
 }
 
