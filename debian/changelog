@@ -1,3 +1,19 @@
+huayra-preciosa (0.1.16) unstable; urgency=low
+
+  * Nuevo estilo de colores.
+  * Cambios de presentación en los detalles del producto.
+
+ -- Ignacio Juan Martín Benedetti <tranceway@gmail.com>  Fri, 14 Mar 2014 16:16:21 -0300
+
+huayra-preciosa (0.1.15) unstable; urgency=low
+
+  * Cambio de interfaz en listado de sucursales.
+  * Solución al error de "El precio no se pudo cargar".
+  * Ícono nuevo.
+  * Renombre en el menú Huayra (se quitó el guión medio).
+
+ -- Ignacio Juan Martín Benedetti <tranceway@gmail.com>  Fri, 14 Mar 2014 12:25:33 -0300
+
 huayra-preciosa (0.1.14) unstable; urgency=low
 
   * Se agregó la librería de íconos Font-Awesome.
