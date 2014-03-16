@@ -1,6 +1,7 @@
 /* Este es el modulo js cliente de la API rest */
 var settings = require('./package.json');
-var BASE_URL = settings.config.api_url;
+var BASE_API_URL = settings.config.api_url;
+var BASE_IMG_URL = settings.config.img_url;
 
 var consultar_sucursales = function(callback, params) {
     if (typeof(params) === 'undefined') params = {};
@@ -23,7 +24,7 @@ var consultar_sucursales = function(callback, params) {
     }
 
     $.ajax({
-        url: BASE_URL + "/sucursales/",
+        url: BASE_API_URL + "/sucursales/",
         dataType: "json",
         crossDomain: true,
         data: data,
@@ -52,7 +53,7 @@ var consultar_productos = function(callback, params) {
     }
 
     $.ajax({
-        url: BASE_URL + "/productos/",
+        url: BASE_API_URL + "/productos/",
         dataType: "json",
         crossDomain: true,
         data: data,
@@ -169,10 +170,11 @@ $(document).on("pagebeforeshow", "#producto", function() {
     $('#producto_nombre').html('Cargando ...');
     $('#producto_upc').html('');
     $('#producto_precio').html('Cargando ...');
+    $('#producto_foto').attr('src', 'images/logo.png');
 
     console.log(localStorage);
     $.ajax({
-        url: BASE_URL + "/productos/",
+        url: BASE_API_URL + "/productos/",
         dataType: "json",
         crossDomain: true,
         data: {
@@ -186,12 +188,15 @@ $(document).on("pagebeforeshow", "#producto", function() {
             if (response.count > 0) {
                 $('#producto_nombre').html(response.results[0].descripcion);
                 $('#producto_upc').html(response.results[0].upc);
+                if (response.results[0].foto !== null) {
+                    $('#producto_foto').attr('src', BASE_IMG_URL + response.results[0].foto);
+                }
             }
         },
     });
 
     $.ajax({
-        url: BASE_URL + "/precios/",
+        url: BASE_API_URL + "/precios/",
         dataType: "json",
         crossDomain: true,
         data: {

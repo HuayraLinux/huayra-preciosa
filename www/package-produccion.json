@@ -13,7 +13,8 @@
     "toolbar": false
   },
   "config" : {
-    "api_url": "http://preciosdeargentina.com.ar/api/v1"
+    "api_url": "http://preciosdeargentina.com.ar/api/v1",
+    "img_url": "http://preciosdeargentina.com.ar"
   }
 }
 
