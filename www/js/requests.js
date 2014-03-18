@@ -197,7 +197,7 @@ $(document).on("pagebeforeshow", "#producto", function() {
     $('#producto_nombre').html('');
     $('#producto_upc').html('');
     $('#producto_precio').html('');
-    $('#producto_foto').attr('src', '');
+    $('#producto_foto').attr('src', 'images/logo.png');
     $('#mejores_precios').html('');
 });
 
