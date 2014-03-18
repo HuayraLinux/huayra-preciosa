@@ -181,8 +181,9 @@ $(document).on("pagebeforeshow", "#producto", function() {
 });
 
 $(document).on("pageshow", "#producto", function() {
+    $('#precio_preguntar').show();
+    $('#precio_agradecer').hide();
 
-    console.log(localStorage);
     $.ajax({
         url: BASE_API_URL + "/productos/",
         dataType: "json",
@@ -267,15 +268,30 @@ $(document).on('pageinit', '#sucursal', function(){
     $(document).on('click', 'a.producto', asignar_producto_id);
 });
 $(document).on('pageinit', '#producto', function(){
+    if (typeof(localStorage.precios) === 'undefined') {
+        localStorage.precios = JSON.stringify([]);
+        console.log(1);
+    }
+    var precios_list = JSON.parse(localStorage.precios);
+
     $('#precio_votar_form').submit(function(e) {
         e.preventDefault();
 
+        var precio = ($('#precio_votar_form input[name=precio]').val() / 1)
         var data = $(this).serialize();
+        var fecha = new Date();
+
         data = data + '&producto_id=' + localStorage.producto_id;
         data = data + '&sucursal_id=' + localStorage.sucursal_id;
+        data = data + '&fecha=' + fecha.toJSON();
 
-        console.log({
-            data: data
-        });
+        precios_list.push(data);
+        localStorage.precios = JSON.stringify(precios_list);
+
+        $('#votar_precio').popup('close');
+        $('#precio_preguntar').hide();
+        $('#precio_agradecer').show();
+        $('#precio_votar_form input[name=precio]').val('');
+
     });
 });
