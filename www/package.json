@@ -10,7 +10,8 @@
     "min_height": 640,
     "width": 480,
     "height": 640,
-    "toolbar": true
+    "toolbar": true,
+    "position": "mouse"
   },
   "config" : {
     "api_url": "http://preciosdeargentina.com.ar/api/v1",
