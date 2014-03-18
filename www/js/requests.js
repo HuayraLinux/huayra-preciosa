@@ -15,8 +15,8 @@ var consultar_sucursales = function(callback, params) {
         data.lon = params.lon;
     }
 
-    if (typeof(params.limit) !== 'undefined') {
-        data.limit = params.limit;
+    if (typeof(params.limite) !== 'undefined') {
+        data.limite = params.limite;
     }
 
     if (typeof(params.q) !== 'undefined') {
@@ -144,7 +144,7 @@ $(document).on("pagecreate", "#principal", function() {
             selector: $('#sucursales_cercanas_listview'),
             lat: -38.7316685,
             lon: -62.251555,
-            limit: 3
+            limite: 3
         }
     );
 
@@ -198,6 +198,7 @@ $(document).on("pagebeforeshow", "#producto", function() {
     $('#producto_upc').html('');
     $('#producto_precio').html('');
     $('#producto_foto').attr('src', '');
+    $('#mejores_precios').html('');
 });
 
 $(document).on("pageshow", "#producto", function() {
@@ -205,48 +206,40 @@ $(document).on("pageshow", "#producto", function() {
     $('#precio_agradecer').hide();
 
     $.ajax({
-        url: BASE_API_URL + "/productos/",
+        url: BASE_API_URL + '/sucursales/' + localStorage.sucursal_id + '/productos/' + localStorage.producto_id,
         dataType: "json",
         crossDomain: true,
         data: {
             format: 'json',
-            pk: localStorage.producto_id
         },
         error: function(xhr, text, error) {
-            $('#producto_nombre').html('No se pudo obtener el precio');
+            $('#producto_nombre').html('No se pudo obtener la información solicitada');
         },
         success: function(response) {
-            if (response.count > 0) {
-                $('#producto_nombre').html(response.results[0].descripcion);
-                $('#producto_upc').html(response.results[0].upc);
-                if (response.results[0].foto !== null) {
-                    $('#producto_foto').attr('src', BASE_IMG_URL + response.results[0].foto);
-                }
+            $('#producto_nombre').html(response.producto.descripcion);
+            $('#producto_upc').html(response.producto.upc);
+            if (response.producto.foto !== null) {
+                $('#producto_foto').attr('src', BASE_IMG_URL + response.producto.foto);
             }
-        },
-    });
 
-    $.ajax({
-        url: BASE_API_URL + "/precios/",
-        dataType: "json",
-        crossDomain: true,
-        data: {
-            format: 'json',
-            producto_id: localStorage.producto_id,
-            sucursal_id: localStorage.sucursal_id
-        },
-        error: function(xhr, text, error) {
-            $('#producto_precio').html('No se pudo obtener el precio');
-        },
-        success: function(response) {
-            if (response.count > 0) {
-                $('#producto_precio').html('$' + response.results[0].precio + '.-');
-                $('#votar_precio_si').data('precio', response.results[0].precio / 1);
+            if (response.mas_probables.length > 0) {
+                $('#producto_precio').html('$' + response.mas_probables[0].precio + '.-');
+                $('#votar_precio_si').data('precio', response.mas_probables[0].precio / 1);
             }
             else {
                 $('#producto_precio').html('Sin precio');
                 $('#votar_precio_si').data('precio', 0);
             }
+
+            if (response.mejores.length > 0) {
+                response.mejores.forEach(function (e, index) {
+                    $('#mejores_precios').append('<li>$'+e.precio+'.- en '+e.sucursal.nombre+'</li>');
+                });
+            }
+            else {
+                $('#mejores_precios').html('<li>No hay precios sugeridos</li>');
+            }
+
         },
     });
 });
