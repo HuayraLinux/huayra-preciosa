@@ -3,6 +3,8 @@ var settings = require('./package.json');
 var BASE_API_URL = settings.config.api_url;
 var BASE_IMG_URL = settings.config.img_url;
 
+var precios_queue = new Queue('precios');
+
 var consultar_sucursales = function(callback, params) {
     if (typeof(params) === 'undefined') params = {};
 
@@ -110,8 +112,6 @@ var mostrar_productos = function(status, response, selector) {
 
 var guardar_precio = function(precio)
 {
-    var precios_list = JSON.parse(localStorage.precios);
-
     var fecha = new Date();
     var data = {
         precio: precio,
@@ -120,9 +120,9 @@ var guardar_precio = function(precio)
         sid: localStorage.sucursal_id
     }
 
-    precios_list.push(data);
-    localStorage.precios = JSON.stringify(precios_list);
+    precios_queue.put(data);
 
+    // - Manejo de interfaz
     $('#votar_precio').popup('close');
     $('#precio_preguntar').hide();
     $('#precio_agradecer').show();
@@ -131,9 +131,12 @@ var guardar_precio = function(precio)
 
 var enviar_precios = function (){
     console.log('Mandando precios');
-    var precios_list = JSON.parse(localStorage.precios);
 
-    precios_list.forEach(function(e, index) {
+    var index = precios_queue.qsize();
+
+    while(index) {
+        e = precios_queue.get();
+
         var url = BASE_API_URL + '/sucursales/' + e.sid + '/productos/' + e.pid;
         $.ajax({
             async: false,
@@ -142,14 +145,15 @@ var enviar_precios = function (){
             dataType: 'json',
             url: url,
             data: {precio: e.precio, created: e.fecha},
-            success: function(response) {
-                console.log(url);
-                console.log(response);
+            error: function(response) {
+                precios_queue.put(e);
             }
         });
-    });
 
-    //setTimeout(enviar_precios, 5000);
+        index--;
+    }
+
+    setTimeout(enviar_precios, 5000);
 }
 
 // ---
@@ -302,10 +306,7 @@ var asignar_producto_id = function(e){
 
 $(document).on('pageinit', '#principal', function(){
     $(document).on('click', 'a.sucursal', asignar_sucursal_id);
-    if (typeof(localStorage.precios) === 'undefined') {
-        localStorage.precios = JSON.stringify([]);
-    }
-    enviar_precios();
+    setTimeout(enviar_precios, 5000);
 });
 $(document).on('pageinit', '#sucursal', function(){
     $(document).on('click', 'a.producto', asignar_producto_id);
