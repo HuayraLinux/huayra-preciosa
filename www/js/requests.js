@@ -112,12 +112,13 @@ var guardar_precio = function(precio)
 {
     var precios_list = JSON.parse(localStorage.precios);
 
-    var data = 'precio=' + precio;
     var fecha = new Date();
-
-    data = data + '&producto_id=' + localStorage.producto_id;
-    data = data + '&sucursal_id=' + localStorage.sucursal_id;
-    data = data + '&fecha=' + fecha.toJSON();
+    var data = {
+        precio: precio,
+        fecha: fecha.toJSON(),
+        pid: localStorage.producto_id,
+        sid: localStorage.sucursal_id
+    }
 
     precios_list.push(data);
     localStorage.precios = JSON.stringify(precios_list);
@@ -126,6 +127,29 @@ var guardar_precio = function(precio)
     $('#precio_preguntar').hide();
     $('#precio_agradecer').show();
     $('#precio_votar_form input[name=precio]').val('');
+}
+
+var enviar_precios = function (){
+    console.log('Mandando precios');
+    var precios_list = JSON.parse(localStorage.precios);
+
+    precios_list.forEach(function(e, index) {
+        var url = BASE_API_URL + '/sucursales/' + e.sid + '/productos/' + e.pid;
+        $.ajax({
+            async: false,
+            global: false,
+            type: 'POST',
+            dataType: 'json',
+            url: url,
+            data: {precio: e.precio, created: e.fecha},
+            success: function(response) {
+                console.log(url);
+                console.log(response);
+            }
+        });
+    });
+
+    //setTimeout(enviar_precios, 5000);
 }
 
 // ---
@@ -278,15 +302,15 @@ var asignar_producto_id = function(e){
 
 $(document).on('pageinit', '#principal', function(){
     $(document).on('click', 'a.sucursal', asignar_sucursal_id);
+    if (typeof(localStorage.precios) === 'undefined') {
+        localStorage.precios = JSON.stringify([]);
+    }
+    enviar_precios();
 });
 $(document).on('pageinit', '#sucursal', function(){
     $(document).on('click', 'a.producto', asignar_producto_id);
 });
 $(document).on('pageinit', '#producto', function(){
-    if (typeof(localStorage.precios) === 'undefined') {
-        localStorage.precios = JSON.stringify([]);
-    }
-
     $('#votar_precio_si').click(function(e) {
         var precio = $(e.target).data('precio');
 
