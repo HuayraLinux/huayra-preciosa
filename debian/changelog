@@ -1,3 +1,25 @@
+huayra-preciosa (0.2.1) unstable; urgency=low
+
+  * Geolocalización por IP
+
+ -- Ignacio Juan Martín Benedetti <tranceway@gmail.com>  Fri, 21 Mar 2014 12:55:56 -0300
+
+huayra-preciosa (0.2.0) unstable; urgency=low
+
+  * Mejoras en el envío de precios.
+  * Listado de sucursales con detalles de las mismas.
+
+ -- Ignacio Juan Martín Benedetti <tranceway@gmail.com>  Thu, 20 Mar 2014 17:53:52 -0300
+
+huayra-preciosa (0.1.20) unstable; urgency=low
+
+  * Cambios del motor de precios.
+  * Se implementó una nueva API para la consulta de precios y productos.
+  * Envío de precios secuenciales.
+  * Cambios varios de interfaz.
+
+ -- Ignacio Juan Martín Benedetti <tranceway@gmail.com>  Wed, 19 Mar 2014 15:01:11 -0300
+
 huayra-preciosa (0.1.16) unstable; urgency=low
 
   * Nuevo estilo de colores.

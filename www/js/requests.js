@@ -15,6 +15,7 @@ var consultar_sucursales = function(callback, params) {
     if (typeof(params.lat) !== 'undefined' && typeof(params.lon) !== 'undefined') {
         data.lat = params.lat;
         data.lon = params.lon;
+        data.radio = 5;
     }
 
     if (typeof(params.limite) !== 'undefined') {
@@ -170,6 +171,28 @@ var enviar_precios = function (){
     setTimeout(enviar_precios, 3000);
 }
 
+var obtener_ubicacion = function(){
+    $.ajax({
+        global: false,
+        type: 'GET',
+        dataType: 'json',
+        url: 'http://api.hostip.info/get_json.php?position=true',
+        success: function(response) {
+            console.log(response);
+
+            consultar_sucursales(
+                mostrar_sucursales,
+                {
+                    selector: $('#sucursales_cercanas_listview'),
+                    lat: response.lat,
+                    lon: response.lng,
+                    limite: 3
+                }
+            );
+        }
+    });
+}
+
 // ---
 
 $(document).ajaxStart(function () {
@@ -180,15 +203,7 @@ $(document).ajaxStop(function () {
 });
 
 $(document).on("pagecreate", "#principal", function() {
-    consultar_sucursales(
-        mostrar_sucursales,
-        {
-            selector: $('#sucursales_cercanas_listview'),
-            lat: -38.7316685,
-            lon: -62.251555,
-            limite: 3
-        }
-    );
+    obtener_ubicacion();
 
     $("#sucursales_listview").on("filterablebeforefilter", function (e, data) {
         var $ul = $( this ),
