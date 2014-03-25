@@ -19,3 +19,11 @@
 #preciovotar .ui-block-b {
     text-align: center;
 }
+
+.centrar_tabla {
+    margin: 0 auto;
+}
+
+.centrar_tabla td {
+    padding: 0 5px;
+}

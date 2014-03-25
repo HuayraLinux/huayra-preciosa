@@ -262,6 +262,7 @@ $(document).on("pagebeforeshow", "#producto", function() {
     $('#producto_precio').html('');
     $('#producto_foto').attr('src', 'images/logo.png');
     $('#mejores_precios').html('');
+    $('#row_precio_cuidado').hide();
 });
 
 $(document).on("pageshow", "#producto", function() {
