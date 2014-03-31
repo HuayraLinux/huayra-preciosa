@@ -10,7 +10,7 @@ Homepage: https://github.com/mgaitan/preciosa_mobile
 
 Package: huayra-preciosa
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}, node-webkit(>= 0.6)
+Depends: ${shlibs:Depends}, ${misc:Depends}, node-webkit(>= 0.6), uuid-runtime(>=2.20.1-5.3)
 Description: Inteligencia colectiva contra la inflación.
  Preciosa (Precios de Argentina) es una plataforma web con
  aplicaciones para teléfonos inteligentes que facilita el
