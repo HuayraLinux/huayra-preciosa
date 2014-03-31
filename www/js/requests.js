@@ -11,39 +11,6 @@ var precios_queue = new Queue('precios');
 
 var peticion_ajax = null;
 
-var get_token = function() {
-    if ('preciosa_token' in localStorage) {
-        return localStorage.preciosa_token;
-    }
-
-    var fs = require("fs");
-    var device_uuid = fs.readFileSync('/etc/hw_id', {encoding: 'ASCII'});
-
-    $.ajax({
-        type: 'POST',
-        dataType: 'json',
-        url: BASE_API_URL + "/auth/registro",
-        async: false,
-        data: {uuid: device_uuid,
-               nombre: 'conectar_igualdad',
-               plataforma: 'node-webkit',
-               phonegap: process.versions['node'],
-               plataforma_version: process.versions['node-webkit'],
-               preciosa_version: PRECIOSA_CLIENT_VERSION,
-            },
-        error: function(response) {
-            console.log("error obteniendo token" + response);
-            alert('Ha ocurrido un problema iniciando Preciosa. ' +
-                  'Por favor vuelva a intentarlo en unos minutos.');
-            return false;
-        },
-        success: function(response) {
-            localStorage.preciosa_token = response.token;
-            return localStorage.preciosa_token;
-        }
-    });
-}
-
 var consultar_sucursales = function(callback, params) {
     if (typeof(params) === 'undefined') params = {};
 

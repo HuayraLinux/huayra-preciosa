@@ -1,3 +1,16 @@
+huayra-preciosa (0.2.3) unstable; urgency=low
+
+  * Soporte para Registración Anónima
+
+ -- Ignacio Juan Martín Benedetti <tranceway@gmail.com>  Mon, 31 Mar 2014 12:02:23 -0300
+
+huayra-preciosa (0.2.2) unstable; urgency=low
+
+  * Control de peticiones ajax.
+  * Soporte para mostrar precios en acuerdo.
+
+ -- Ignacio Juan Martín Benedetti <tranceway@gmail.com>  Tue, 25 Mar 2014 15:48:27 -0300
+
 huayra-preciosa (0.2.1) unstable; urgency=low
 
   * Geolocalización por IP
