@@ -14,7 +14,8 @@
   },
   "config" : {
     "api_url": "http://preciosdeargentina.com.ar/api/v1",
-    "img_url": "http://preciosdeargentina.com.ar"
+    "img_url": "http://preciosdeargentina.com.ar",
+    "api_localizar": "http://dep.monitor02.conectarigualdad.gov.ar/api/localizar"
   }
 }
 

@@ -186,7 +186,7 @@ var obtener_ubicacion = function(){
         global: false,
         type: 'GET',
         dataType: 'json',
-        url: 'http://dep.monitor02.conectarigualdad.gov.ar:3000/api/localizar',
+        url: settings.config.api_localizar,
         success: function(response) {
             console.log(response);
 
