@@ -1,3 +1,9 @@
+huayra-preciosa (0.2.4) unstable; urgency=low
+
+  * Configuración de la API de localización.
+
+ -- Ignacio Juan Martín Benedetti <tranceway@gmail.com>  Thu, 03 Apr 2014 15:16:23 -0300
+
 huayra-preciosa (0.2.3) unstable; urgency=low
 
   * Soporte para Registración Anónima
