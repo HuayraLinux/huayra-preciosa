@@ -1,3 +1,9 @@
+require('dns').resolve('www.google.com', function(err) {
+    if (err){
+        window.location = '#sin_internet';
+    }
+});
+
 /* Este es el modulo js cliente de la API rest */
 var settings = require('./package.json');
 var BASE_API_URL = settings.config.api_url;
