@@ -94,7 +94,7 @@ var mostrar_sucursales = function(status, response, selector) {
             html += '<li><a href="#sucursal" data-id="'+e.id+'" class="sucursal">';
 
             if (e.cadena) {
-                html += '<h2>'+e.cadena.nombre+' ('+e.nombre+')</h2>';
+                html += '<h2>'+e.cadena_completa.nombre+' ('+e.nombre+')</h2>';
             }
             else {
                 html += '<h2>'+e.nombre+'</h2>';
