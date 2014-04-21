@@ -1,3 +1,16 @@
+huayra-preciosa (0.2.7) unstable; urgency=low
+
+  * Link a Ayuda de Huayra-Visor-Manual.
+  * Cambio en el texto de "Sin conexión".
+
+ -- Ignacio Juan Martín Benedetti <tranceway@gmail.com>  Mon, 21 Apr 2014 12:11:13 -0300
+
+huayra-preciosa (0.2.6) unstable; urgency=low
+
+  * Detección de conexión a internet.
+
+ -- Ignacio Juan Martín Benedetti <tranceway@gmail.com>  Tue, 15 Apr 2014 16:08:39 -0300
+
 huayra-preciosa (0.2.4) unstable; urgency=low
 
   * Configuración de la API de localización.
