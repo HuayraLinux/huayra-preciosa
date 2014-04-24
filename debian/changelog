@@ -1,3 +1,15 @@
+huayra-preciosa (0.2.9) unstable; urgency=low
+
+  * Arreglo al registrarse en la API.
+
+ -- Ignacio Juan Martín Benedetti <tranceway@gmail.com>  Thu, 24 Apr 2014 12:01:49 -0300
+
+huayra-preciosa (0.2.8) unstable; urgency=low
+
+  * Arreglo en el botón de ayuda.
+
+ -- Ignacio Juan Martín Benedetti <tranceway@gmail.com>  Mon, 21 Apr 2014 14:49:17 -0300
+
 huayra-preciosa (0.2.7) unstable; urgency=low
 
   * Link a Ayuda de Huayra-Visor-Manual.

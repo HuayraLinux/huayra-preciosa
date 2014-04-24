@@ -31,16 +31,13 @@ var get_token = function() {
             },
         error: function(response) {
             console.log("error obteniendo token" + response);
-            alert('Ha ocurrido un problema iniciando Preciosa. ' +
-                  'Por favor vuelva a intentarlo en unos minutos.');
+            window.location = '#sin_internet';
             return false;
         },
         success: function(response) {
             localStorage.preciosa_token = response.token;
         }
     });
-    // TO DO: esto huele a mierda bloqueante. Preguntarle a
-    // alguien que sepa cómo se hace bien.
     while (!'preciosa_token' in localStorage){
         return get_token();
         console.log(1);
