@@ -1,3 +1,17 @@
+huayra-preciosa (0.2.11) unstable; urgency=medium
+
+  * Mejoras en la información al usuario cuando no hay conexión a internet
+    disponible.
+
+ -- Ignacio Juan Martín Benedetti <tranceway@gmail.com>  Fri, 13 Feb 2015 11:45:05 -0300
+
+huayra-preciosa (0.2.10) unstable; urgency=low
+
+  * Se quita, temporalmente, la opción, que no funciona, de leer código de
+    barra desde la netbook.
+
+ -- Ignacio Juan Martín Benedetti <tranceway@gmail.com>  Thu, 29 May 2014 12:19:28 -0300
+
 huayra-preciosa (0.2.9) unstable; urgency=low
 
   * Arreglo al registrarse en la API.
